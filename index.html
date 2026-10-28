@@ -123,7 +123,7 @@
         .nav-links a:hover { color: var(--or); }
 
         /* =========================================
-           4. SECTION HERO
+           4. SECTION HERO (TITRE AVEC FLAMME)
            ========================================= */
         .hero {
             position: relative;
@@ -149,10 +149,66 @@
         }
         .hero-content {
             position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center;
-            width: 100%; max-width: 900px;
+            width: 100%; max-width: 1000px;
         }
-        .hero h1 { font-size: 4.5rem; margin-bottom: 10px; text-transform: uppercase; text-shadow: 0 5px 15px rgba(0,0,0,0.5); letter-spacing: 2px; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 800px; opacity: 0.95; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        
+        /* NOUVEAU SYSTEME DE TITRE */
+        .hero-title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap; /* Au cas où l'écran est très petit */
+        }
+
+        .hero-title-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 9.5rem; /* TRÈS GROS */
+            font-weight: 700;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(to bottom, #F1C40F, #D4AF37, #b38b1c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7));
+            margin: 0;
+        }
+
+        .flame-container {
+            position: relative;
+            width: 140px;
+            height: 170px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: drop-shadow(0 0 20px rgba(231, 76, 60, 0.8));
+            /* Petite animation de flottement */
+            animation: floatShape 4s infinite ease-in-out;
+        }
+
+        .flame-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .flame-number {
+            position: relative;
+            z-index: 2;
+            font-family: 'Oswald', sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            margin-top: 10px; /* Décale légèrement vers le bas pour être au centre de la flamme */
+        }
+
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 800px; opacity: 0.95; text-shadow: 0 2px 5px rgba(0,0,0,0.5); font-weight: 400; }
         .date-badge {
             display: inline-block; background-color: var(--or); color: var(--texte-sombre);
             padding: 10px 25px; border-radius: 50px; font-weight: 800; margin-bottom: 30px;
@@ -446,13 +502,12 @@
         .vip-badge { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background: #e74c3c; color: white; padding: 8px 25px; border-radius: 30px; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.5); z-index: 10; }
 
         /* =========================================
-           12. SECTION GALERIE (NOUVEAU CARROUSEL SWIPER)
+           12. SECTION GALERIE (SWIPER)
            ========================================= */
         .gallery-section { padding: 100px 0; background-color: var(--texte-blanc); position: relative; overflow: hidden; }
         .gallery-section::after { content: ''; position: absolute; width: 100%; height: 100%; top: 0; left: 0; background-image: radial-gradient(var(--vert-clair) 1px, transparent 1px); background-size: 30px 30px; opacity: 0.3; z-index: 0; animation: moveDots 20s linear infinite; }
         @keyframes moveDots { from { background-position: 0 0; } to { background-position: 30px 30px; } }
         
-        /* Styles pour le Swiper */
         .gallery-swiper {
             width: 100%;
             padding-top: 20px;
@@ -461,27 +516,24 @@
             z-index: 2;
         }
 
-        .swiper-wrapper {
-            align-items: center;
-        }
+        .swiper-wrapper { align-items: center; }
 
         .swiper-slide {
-            width: 320px; /* Largeur de base des images latérales */
+            width: 320px;
             height: 400px;
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.5s ease;
-            opacity: 0.4; /* Les images sur les côtés sont atténuées */
-            transform: scale(0.85); /* Plus petites */
+            opacity: 0.4;
+            transform: scale(0.85);
             cursor: pointer;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             position: relative;
         }
 
-        /* L'image centrale (active) */
         .swiper-slide-active {
             opacity: 1;
-            transform: scale(1.15); /* Plus grande */
+            transform: scale(1.15);
             z-index: 10;
             border: 3px solid var(--or);
             box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
@@ -494,7 +546,6 @@
             display: block;
         }
 
-        /* Légende sur les images */
         .slide-caption {
             position: absolute;
             bottom: 0; left: 0; right: 0;
@@ -502,7 +553,7 @@
             padding: 20px;
             color: white;
             text-align: left;
-            opacity: 1; /* Toujours visible */
+            opacity: 1;
             transition: opacity 0.3s;
         }
 
@@ -607,7 +658,11 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            /* TAILLE DU TITRE ET FLAMME POUR MOBILE */
+            .hero-title-text { font-size: 5rem; letter-spacing: 0; }
+            .flame-container { width: 80px; height: 100px; }
+            .flame-number { font-size: 3rem; margin-top: 5px; }
+
             .nav-links { display: none; }
             .countdown-box { min-width: 80px; padding: 15px; }
             .countdown-box span { font-size: 2rem; }
@@ -642,14 +697,8 @@
             .history-footer .footer-text h3 { font-size: 1.5rem; }
             .history-footer .footer-text p { font-size: 0.9rem; }
 
-            /* Ajustement Swiper sur mobile */
-            .swiper-slide {
-                width: 240px;
-                height: 320px;
-            }
-            .swiper-slide-active {
-                transform: scale(1.05);
-            }
+            .swiper-slide { width: 240px; height: 320px; }
+            .swiper-slide-active { transform: scale(1.05); }
         }
     </style>
 </head>
@@ -675,7 +724,27 @@
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <h1 data-aos="fade-down" data-aos-duration="1000">RUADAY 6</h1>
+            
+            <!-- LE NOUVEAU TITRE AVEC LA FLAMME -->
+            <div class="hero-title-wrapper" data-aos="zoom-in" data-aos-duration="1000">
+                <h1 class="hero-title-text">RUADAY</h1>
+                
+                <div class="flame-container">
+                    <!-- SVG de la flamme pointant vers le haut -->
+                    <svg class="flame-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="flameGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                                <stop offset="0%" stop-color="#b38b1c" />
+                                <stop offset="50%" stop-color="#F1C40F" />
+                                <stop offset="100%" stop-color="#e74c3c" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M50 0 C50 0 90 40 90 80 C90 105 72 120 50 120 C28 120 10 105 10 80 C10 40 50 0 50 0 Z" fill="url(#flameGradient)"/>
+                    </svg>
+                    <span class="flame-number">6</span>
+                </div>
+            </div>
+
             <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Journée dédiée à l'urgence des formations conduisant à la prospérité et au succès. 9h d'immersion en métaphysique, spiritualité et psychologie du succès.</p>
             
             <div class="date-badge" data-aos="zoom-in" data-aos-delay="400">
@@ -689,7 +758,6 @@
                 <div class="countdown-box"><span id="seconds">00</span><p>Secondes</p></div>
             </div>
 
-            <!-- Bouton Play 1 : Ouvre la vidéo promo principale -->
             <button class="play-btn-hero" onclick="openVideoModal('assets/img/video-promo-ruaday6.mp4')" data-aos="fade-up" data-aos-delay="700">
                 <i class="fa-solid fa-circle-play"></i> Voir la vidéo avec le son
             </button>
@@ -702,7 +770,6 @@
     <div class="video-modal" id="videoModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeVideoModal()"><i class="fa-solid fa-xmark"></i></span>
-            <!-- Balise vidéo vide au départ, le JS injecte la source -->
             <video id="modalVideo" controls playsinline>
                 <source id="videoSource" src="" type="video/mp4">
                 Votre navigateur ne supporte pas la lecture de vidéos.
@@ -935,9 +1002,7 @@
         </div>
     </section>
 
-    <!-- =========================================
-         NOUVELLE SECTION GALERIE : CARROUSEL SWIPER
-         ========================================= -->
+    <!-- SECTION GALERIE : CARROUSEL SWIPER -->
     <section class="gallery-section" id="gallery">
         <h2 class="section-title" data-aos="fade-up">Les Éditions Passées en Images</h2>
         <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Revivez les moments forts de nos précédentes conférences</p>
@@ -948,82 +1013,82 @@
                 
                 <!-- Image 1 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-8.jpeg" alt="RUADAY 1">
+                    <img src="assets/img/ruaday-1.jpeg" alt="RUADAY 1">
                     <div class="slide-caption"><h4>RUADAY 1</h4><p>Les débuts (2021).</p></div>
                 </div>
                 <!-- Image 2 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-9.jpeg" alt="RUADAY 1">
+                    <img src="assets/img/ruaday-2.jpeg" alt="RUADAY 1">
                     <div class="slide-caption"><h4>RUADAY 1</h4><p>Premiers échanges (2021).</p></div>
                 </div>
                 <!-- Image 3 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-10.jpeg" alt="RUADAY 2">
+                    <img src="assets/img/ruaday-3.jpeg" alt="RUADAY 2">
                     <div class="slide-caption"><h4>RUADAY 2</h4><p>L'éveil des consciences (2022).</p></div>
                 </div>
                 <!-- Image 4 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-11.jpeg" alt="RUADAY 2">
+                    <img src="assets/img/ruaday-4.jpeg" alt="RUADAY 2">
                     <div class="slide-caption"><h4>RUADAY 2</h4><p>Masterclass (2022).</p></div>
                 </div>
                 <!-- Image 5 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-12.jpeg" alt="RUADAY 3">
+                    <img src="assets/img/ruaday-5.jpeg" alt="RUADAY 3">
                     <div class="slide-caption"><h4>RUADAY 3</h4><p>La discipline en action (2023).</p></div>
                 </div>
                 <!-- Image 6 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-13.jpeg" alt="RUADAY 3">
+                    <img src="assets/img/ruaday-6.jpeg" alt="RUADAY 3">
                     <div class="slide-caption"><h4>RUADAY 3</h4><p>Salle comble (2023).</p></div>
                 </div>
                 <!-- Image 7 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-21.jpeg" alt="RUADAY 4">
+                    <img src="assets/img/ruaday-7.jpeg" alt="RUADAY 4">
                     <div class="slide-caption"><h4>RUADAY 4</h4><p>Stratégie de croissance (2024).</p></div>
                 </div>
                 <!-- Image 8 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-14.jpeg" alt="RUADAY 4">
+                    <img src="assets/img/ruaday-8.jpeg" alt="RUADAY 4">
                     <div class="slide-caption"><h4>RUADAY 4</h4><p>Réseautage B2B (2024).</p></div>
                 </div>
                 <!-- Image 9 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-15.jpeg" alt="RUADAY 5">
+                    <img src="assets/img/ruaday-9.jpeg" alt="RUADAY 5">
                     <div class="slide-caption"><h4>RUADAY 5</h4><p>La puissance du collectif (2025).</p></div>
                 </div>
                 <!-- Image 10 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-16.jpeg" alt="RUADAY 5">
+                    <img src="assets/img/ruaday-10.jpeg" alt="RUADAY 5">
                     <div class="slide-caption"><h4>RUADAY 5</h4><p>Moments de partage (2025).</p></div>
                 </div>
                 <!-- Image 11 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-17.jpeg" alt="RUADAY 5">
+                    <img src="assets/img/ruaday-18.jpeg" alt="RUADAY 5">
                     <div class="slide-caption"><h4>RUADAY 5</h4><p>Ateliers pratiques (2025).</p></div>
                 </div>
                 <!-- Image 12 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-18.jpeg" alt="RUADAY 5">
+                    <img src="assets/img/ruaday-3.jpeg" alt="RUADAY 5">
                     <div class="slide-caption"><h4>RUADAY 5</h4><p>Échanges avec le coach (2025).</p></div>
                 </div>
                 <!-- Image 13 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-19.jpeg" alt="RUADAY 5">
+                    <img src="assets/img/ruaday-15.jpeg" alt="RUADAY 5">
                     <div class="slide-caption"><h4>RUADAY 5</h4><p>Pause networking (2025).</p></div>
                 </div>
                 <!-- Image 14 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-20.jpeg" alt="RUADAY 5">
+                    <img src="assets/img/ruaday-17.jpeg" alt="RUADAY 5">
                     <div class="slide-caption"><h4>RUADAY 5</h4><p>Session de questions (2025).</p></div>
                 </div>
                 <!-- Image 15 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-1.jpeg" alt="RUADAY 5">
+                    <img src="assets/img/ruaday-21.jpeg" alt="RUADAY 5">
                     <div class="slide-caption"><h4>RUADAY 5</h4><p>Remise de prix (2025).</p></div>
                 </div>
                 <!-- Image 16 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-2.jpeg" alt="RUADAY 5">
+                    <img src="assets/img/ruaday-14.jpeg" alt="RUADAY 5">
                     <div class="slide-caption"><h4>RUADAY 5</h4><p>Photo de groupe (2025).</p></div>
                 </div>
                 <!-- Image 17 -->
@@ -1033,27 +1098,27 @@
                 </div>
                 <!-- Image 18 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-4.jpeg" alt="RUADAY 5">
+                    <img src="assets/img/ruaday-13.jpeg" alt="RUADAY 5">
                     <div class="slide-caption"><h4>RUADAY 5</h4><p>Cocktail de clôture (2025).</p></div>
                 </div>
                 <!-- Image 19 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-5.jpeg" alt="RUADAY 5">
+                    <img src="assets/img/ruaday-16.jpeg" alt="RUADAY 5">
                     <div class="slide-caption"><h4>RUADAY 5</h4><p>Le sourire des participants (2025).</p></div>
                 </div>
                 <!-- Image 20 -->
                 <div class="swiper-slide">
-                    <img src="assets/img/ruaday-6.jpeg" alt="RUADAY 5">
+                    <img src="assets/img/ruaday-3.jpeg" alt="RUADAY 5">
                     <div class="slide-caption"><h4>RUADAY 5</h4><p>Rendez-vous en 2026 !</p></div>
                 </div>
 
             </div>
-            <!-- Ajout de la pagination (points en bas) -->
+            <!-- Pagination -->
             <div class="swiper-pagination"></div>
         </div>
     </section>
 
-    <!-- SECTION FINALE (Style GCAP11) -->
+    <!-- SECTION FINALE -->
     <section class="final-cta-section">
         <div class="final-container">
             <div class="final-left" data-aos="fade-right" data-aos-duration="1000">
@@ -1112,15 +1177,11 @@
 
     <!-- SCRIPTS JAVASCRIPT -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <!-- Script de Swiper.js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-        // Initialisation de AOS
         AOS.init({ once: true, offset: 100, });
 
-        // Compte à rebours
         const countDownDate = new Date("Nov 14, 2026 09:00:00").getTime();
         const x = setInterval(function() {
             const now = new Date().getTime();
@@ -1158,7 +1219,6 @@
             }
         }, 1000);
 
-        // Header Scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
@@ -1170,7 +1230,6 @@
             }
         });
 
-        // Modale Vidéo
         const modal = document.getElementById("videoModal");
         const modalVideo = document.getElementById("modalVideo"); 
         const videoSource = document.getElementById("videoSource"); 
@@ -1194,38 +1253,27 @@
             if (e.target === modal) closeVideoModal();
         });
 
-        // ====================================================
-        // INITIALISATION DU CARROUSEL SWIPER (GALERIE)
-        // ====================================================
         var swiper = new Swiper(".gallery-swiper", {
             effect: "coverflow",
             grabCursor: true,
             centeredSlides: true,
             slidesPerView: "auto",
-            loop: true, // Défilement infini
-            
-            // Configuration pour que la carte centrale soit plus grande
+            loop: true,
             coverflowEffect: {
-                rotate: 0,       // Pas de rotation (reste droit)
-                stretch: 0,      // Pas d'étirement
-                depth: 100,      // Profondeur de l'effet 3D
-                modifier: 2.5,   // Intensité de l'effet (plus grand = plus prononcé)
-                slideShadows: false, // On désactive les ombres par défaut pour utiliser notre CSS
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2.5,
+                slideShadows: false,
             },
-            
-            // Défilement automatique
             autoplay: {
-                delay: 3000, // Change d'image toutes les 3 secondes
-                disableOnInteraction: false, // Continue de défiler même si l'utilisateur clique
+                delay: 3000,
+                disableOnInteraction: false,
             },
-            
-            // Pagination (points en bas)
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
             },
-            
-            // Vitesse de transition
             speed: 800,
         });
     </script>
