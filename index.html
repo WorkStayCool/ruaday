@@ -123,7 +123,7 @@
         .nav-links a:hover { color: var(--or); }
 
         /* =========================================
-           4. SECTION HERO (TITRE AVEC FLAMME)
+           4. SECTION HERO
            ========================================= */
         .hero {
             position: relative;
@@ -152,19 +152,19 @@
             width: 100%; max-width: 1000px;
         }
         
-        /* NOUVEAU SYSTEME DE TITRE */
+        /* TITRE AVEC FLAMME */
         .hero-title-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
             margin-bottom: 30px;
-            flex-wrap: wrap; /* Au cas où l'écran est très petit */
+            flex-wrap: wrap;
         }
 
         .hero-title-text {
             font-family: 'Oswald', sans-serif;
-            font-size: 9.5rem; /* TRÈS GROS */
+            font-size: 9.5rem; 
             font-weight: 700;
             line-height: 0.9;
             text-transform: uppercase;
@@ -184,7 +184,6 @@
             justify-content: center;
             align-items: center;
             filter: drop-shadow(0 0 20px rgba(231, 76, 60, 0.8));
-            /* Petite animation de flottement */
             animation: floatShape 4s infinite ease-in-out;
         }
 
@@ -205,7 +204,7 @@
             font-weight: 700;
             color: #ffffff;
             text-shadow: 0 4px 15px rgba(0,0,0,0.6);
-            margin-top: 10px; /* Décale légèrement vers le bas pour être au centre de la flamme */
+            margin-top: 10px;
         }
 
         .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 800px; opacity: 0.95; text-shadow: 0 2px 5px rgba(0,0,0,0.5); font-weight: 400; }
@@ -546,19 +545,7 @@
             display: block;
         }
 
-        .slide-caption {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(to top, rgba(2, 26, 18, 0.9), transparent);
-            padding: 20px;
-            color: white;
-            text-align: left;
-            opacity: 1;
-            transition: opacity 0.3s;
-        }
-
-        .slide-caption h4 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; margin-bottom: 2px; }
-        .slide-caption p { font-size: 0.8rem; color: #ccc; }
+        /* Suppression des styles pour les légendes (slide-caption) */
 
         /* =========================================
            13. SECTION FINALE (Style GCAP11)
@@ -1002,7 +989,7 @@
         </div>
     </section>
 
-    <!-- SECTION GALERIE : CARROUSEL SWIPER -->
+    <!-- SECTION GALERIE : CARROUSEL SWIPER SANS TEXTES -->
     <section class="gallery-section" id="gallery">
         <h2 class="section-title" data-aos="fade-up">Les Éditions Passées en Images</h2>
         <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Revivez les moments forts de nos précédentes conférences</p>
@@ -1014,102 +1001,82 @@
                 <!-- Image 1 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-1.jpeg" alt="RUADAY 1">
-                    <div class="slide-caption"><h4>RUADAY 1</h4><p>Les débuts (2021).</p></div>
                 </div>
                 <!-- Image 2 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-2.jpeg" alt="RUADAY 1">
-                    <div class="slide-caption"><h4>RUADAY 1</h4><p>Premiers échanges (2021).</p></div>
                 </div>
                 <!-- Image 3 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-3.jpeg" alt="RUADAY 2">
-                    <div class="slide-caption"><h4>RUADAY 2</h4><p>L'éveil des consciences (2022).</p></div>
                 </div>
                 <!-- Image 4 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-4.jpeg" alt="RUADAY 2">
-                    <div class="slide-caption"><h4>RUADAY 2</h4><p>Masterclass (2022).</p></div>
                 </div>
                 <!-- Image 5 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-5.jpeg" alt="RUADAY 3">
-                    <div class="slide-caption"><h4>RUADAY 3</h4><p>La discipline en action (2023).</p></div>
                 </div>
                 <!-- Image 6 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-6.jpeg" alt="RUADAY 3">
-                    <div class="slide-caption"><h4>RUADAY 3</h4><p>Salle comble (2023).</p></div>
                 </div>
                 <!-- Image 7 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-7.jpeg" alt="RUADAY 4">
-                    <div class="slide-caption"><h4>RUADAY 4</h4><p>Stratégie de croissance (2024).</p></div>
                 </div>
                 <!-- Image 8 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-8.jpeg" alt="RUADAY 4">
-                    <div class="slide-caption"><h4>RUADAY 4</h4><p>Réseautage B2B (2024).</p></div>
                 </div>
                 <!-- Image 9 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-9.jpeg" alt="RUADAY 5">
-                    <div class="slide-caption"><h4>RUADAY 5</h4><p>La puissance du collectif (2025).</p></div>
                 </div>
                 <!-- Image 10 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-10.jpeg" alt="RUADAY 5">
-                    <div class="slide-caption"><h4>RUADAY 5</h4><p>Moments de partage (2025).</p></div>
                 </div>
                 <!-- Image 11 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-18.jpeg" alt="RUADAY 5">
-                    <div class="slide-caption"><h4>RUADAY 5</h4><p>Ateliers pratiques (2025).</p></div>
                 </div>
                 <!-- Image 12 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-3.jpeg" alt="RUADAY 5">
-                    <div class="slide-caption"><h4>RUADAY 5</h4><p>Échanges avec le coach (2025).</p></div>
                 </div>
                 <!-- Image 13 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-15.jpeg" alt="RUADAY 5">
-                    <div class="slide-caption"><h4>RUADAY 5</h4><p>Pause networking (2025).</p></div>
                 </div>
                 <!-- Image 14 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-17.jpeg" alt="RUADAY 5">
-                    <div class="slide-caption"><h4>RUADAY 5</h4><p>Session de questions (2025).</p></div>
                 </div>
                 <!-- Image 15 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-21.jpeg" alt="RUADAY 5">
-                    <div class="slide-caption"><h4>RUADAY 5</h4><p>Remise de prix (2025).</p></div>
                 </div>
                 <!-- Image 16 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-14.jpeg" alt="RUADAY 5">
-                    <div class="slide-caption"><h4>RUADAY 5</h4><p>Photo de groupe (2025).</p></div>
                 </div>
                 <!-- Image 17 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-3.jpeg" alt="RUADAY 5">
-                    <div class="slide-caption"><h4>RUADAY 5</h4><p>Fin de journée (2025).</p></div>
                 </div>
                 <!-- Image 18 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-13.jpeg" alt="RUADAY 5">
-                    <div class="slide-caption"><h4>RUADAY 5</h4><p>Cocktail de clôture (2025).</p></div>
                 </div>
                 <!-- Image 19 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-16.jpeg" alt="RUADAY 5">
-                    <div class="slide-caption"><h4>RUADAY 5</h4><p>Le sourire des participants (2025).</p></div>
                 </div>
                 <!-- Image 20 -->
                 <div class="swiper-slide">
                     <img src="assets/img/ruaday-3.jpeg" alt="RUADAY 5">
-                    <div class="slide-caption"><h4>RUADAY 5</h4><p>Rendez-vous en 2026 !</p></div>
                 </div>
 
             </div>
